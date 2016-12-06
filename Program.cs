@@ -11,10 +11,14 @@ namespace WebApplication
     {
         public static void Main(string[] args)
         {
+	    var url = config["ASPNETCORE_URLS"] ?? "http://*:8080";
+
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
+		.UseIISIntegration()
                 .UseStartup<Startup>()
+		.UseUrls(url)
                 .Build();
 
             host.Run();
