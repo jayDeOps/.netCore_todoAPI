@@ -14,7 +14,7 @@ namespace WebApplication
             var host = new WebHostBuilder()
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseStartup<Startup>().UseUrls("http://*:5000")
+                .UseStartup<Startup>()
                 .Build();
 
             host.Run();
